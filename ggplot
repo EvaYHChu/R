@@ -1,0 +1,12 @@
+
+data<-read.xlsx("D:\\R\\data_withoutOutlier.xlsx", sheet = "icvf")
+data %>%
+  ggplot( aes(x=as.factor(sub), y=value, fill=type)) +
+    geom_boxplot() +
+    theme_ipsum() +
+    theme(
+      plot.title = element_text(size=11)
+    ) +
+    ggtitle("") +
+    xlab("patients")+
+    ylab("icvf") 
