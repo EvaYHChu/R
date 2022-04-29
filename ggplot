@@ -1,5 +1,4 @@
-
-data<-read.xlsx("D:\\R\\data_withoutOutlier.xlsx", sheet = "icvf")
+data<-read.xlsx("D:\\R\\data_withoutOutlier.xlsx", sheet = "adc")
 data %>%
   ggplot( aes(x=as.factor(sub), y=value, fill=type)) +
     geom_boxplot() +
@@ -9,4 +8,6 @@ data %>%
     ) +
     ggtitle("") +
     xlab("patients")+
-    ylab("icvf") 
+    ylab("ADC") +
+    theme(axis.title.y = element_text(size = 16)) +
+    theme(axis.title.x = element_text(size = 16)) 
