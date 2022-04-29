@@ -1,0 +1,43 @@
+install.packages("corrplot")
+library(corrplot)
+corrplot(abs(cor(df)), type = "upper", col.lim=c(0,1))
+
+# import data
+install.packages("openxlsx")
+library(openxlsx)
+df <- read.xlsx("D:\\R\\patientwise.xlsx", sheet = "LGG")
+
+
+
+
+#####
+install.packages("tidyverse")
+install.packages("hrbrthemes")
+install.packages("viridis")
+
+# Libraries
+library(tidyverse)
+library(hrbrthemes)
+library(viridis)
+
+# create a dataset
+data <- data.frame(
+  name=c( rep("A",500), rep("B",500), rep("B",500), rep("C",20), rep('D', 100)  ),
+  value=c( rnorm(500, 10, 5), rnorm(500, 13, 1), rnorm(500, 18, 1), rnorm(20, 25, 4), rnorm(100, 12, 1) )
+)
+
+# Violin basic
+data %>%
+  ggplot( aes(x=name, y=value, fill=name)) +
+    geom_violin() +
+    scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
+    theme_ipsum() +
+    theme(
+      legend.position="none",
+      plot.title = element_text(size=11)
+    ) +
+    ggtitle("Violin chart") +
+    xlab("")
+    
+    
+    
