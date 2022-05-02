@@ -11,3 +11,22 @@ data %>%
     ylab("ADC") +
     theme(axis.title.y = element_text(size = 16)) +
     theme(axis.title.x = element_text(size = 16)) 
+
+
+#######
+data<-read.xlsx("D:\\R\\data_withoutOutlier.xlsx", sheet = "icvf")
+data %>%
+  ggplot( aes(x=as.factor(type), y=value, fill=type)) +
+    geom_boxplot() +
+    theme_ipsum() +
+    theme(
+      plot.title = element_text(size=11)) +
+    geom_jitter(shape = 16,                      
+              position = position_jitter(0.2))+
+    geom_signif(comparisons = list(c("Meningothelial", "Fibrous")), 
+              map_signif_level=TRUE)+
+    ggtitle("") +
+    xlab("patients")+
+    ylab("icvf") +
+    theme(axis.title.y = element_text(size = 16)) +
+    theme(axis.title.x = element_text(size = 16)) 
