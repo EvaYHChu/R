@@ -1,3 +1,5 @@
 # short cut
 cmd: Ctrl+Enter
-clear cmd: Ctrl+L
+clear cmd: Ctrl+L cat("\014")
+clear plot: dev.off{}
+clear packages: detach("package:datasets", unload = TRUE)
