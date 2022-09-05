@@ -1,0 +1,2 @@
+# multiple graphs
+par(mfrow=c(3,1))
